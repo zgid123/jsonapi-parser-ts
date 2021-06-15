@@ -2,7 +2,7 @@ import isDate from './isDate';
 import isObject from './isObject';
 
 export const camelize = (str: string): string => {
-  return str.replace(/^([A-Z])|[\s-_]+(\w)/g, (_match, p1, p2) => {
+  return str.replace(/^([A-Z])|[\s-_/]+(\w)/g, (_match, p1, p2) => {
     if (p2) {
       return p2.toUpperCase();
     }

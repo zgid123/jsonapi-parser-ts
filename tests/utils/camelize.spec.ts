@@ -13,6 +13,10 @@ test('camelize string as hyphen-case', () => {
   expect(camelize('test-field')).toBe('testField');
 });
 
+test('camelize string that has slash character', () => {
+  expect(camelize('test/field')).toBe('testField');
+});
+
 const result = {
   fieldA: 'test field a',
   fieldB: 'test field b',

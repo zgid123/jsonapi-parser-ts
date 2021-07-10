@@ -60,7 +60,7 @@ const mapRelation = (data: IExtractDataReturnProps['relationships'], extractedIn
       });
     } else {
       const { id, type } = v;
-      const extractedIncludedData = extractedIncluded[type][id];
+      const extractedIncludedData = extractedIncluded[type]?.[id];
 
       if (!extractedIncludedData) {
         return result;

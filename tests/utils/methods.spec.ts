@@ -46,6 +46,7 @@ test('extract included as flatten mode', () => {
         id: '9',
         firstName: 'Dan',
         lastName: 'Gebhardt',
+        nonExistingCollection: '123',
         twitter: 'dgeb',
         addresses: ['1'],
       },
@@ -85,6 +86,10 @@ test('extract included as mapping mode', () => {
           addresses: [
             { type: 'addresses', id: '1' },
           ],
+          nonExistingCollection: {
+            type: 'nonExistingCollection',
+            id: '123',
+          },
         },
       },
     },

@@ -2,6 +2,7 @@ import { camelize, camelizeKeys } from './camelize';
 
 export type TMode = 'flatten' | 'mapping';
 export type TObject = Record<string, string | number | boolean | null | object>;
+type TBasic = string | number | boolean;
 
 interface IResourceObjectProps {
   id: string;
@@ -10,12 +11,12 @@ interface IResourceObjectProps {
 
 interface IRelationshipsProps {
   [key: string]: {
-    data: IResourceObjectProps | IResourceObjectProps[];
+    data: IResourceObjectProps | IResourceObjectProps[] | null;
   } | undefined;
 }
 
 interface IAttributesProps {
-  [key: string]: string | number | boolean | null | TObject | undefined;
+  [key: string]: TBasic | TBasic[] | null | TObject | TObject[] | undefined;
 }
 
 export interface IExtractDataReturnProps {

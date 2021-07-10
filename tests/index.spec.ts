@@ -18,6 +18,7 @@ test('parse json:api data as flatten mode', () => {
         id: '9',
         firstName: 'Dan',
         lastName: 'Gebhardt',
+        nonExistingCollection: '123',
         twitter: 'dgeb',
         addresses: ['1'],
       },

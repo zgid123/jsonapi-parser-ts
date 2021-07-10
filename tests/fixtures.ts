@@ -34,6 +34,12 @@ export const jsonApi = {
             { type: 'addresses', id: '1' },
           ],
         },
+        nonExistingCollection: {
+          data: {
+            id: '123',
+            type: 'nonExistingCollection',
+          },
+        },
       },
     },
     {

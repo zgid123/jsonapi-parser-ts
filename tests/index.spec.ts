@@ -11,6 +11,7 @@ test('parse json:api data as flatten mode', () => {
         title: 'JSON:API paints my bikeshed!',
         author: '9',
         comments: ['5', '12'],
+        testModel: '1',
       },
     },
     people: {
@@ -39,6 +40,12 @@ test('parse json:api data as flatten mode', () => {
       1: {
         id: '1',
         street: 'Avenue Q',
+      },
+    },
+    testModels: {
+      1: {
+        id: '1',
+        name: 'Test Name',
       },
     },
   });
@@ -85,6 +92,10 @@ test('parse json:api data as mapping mode', () => {
           },
         },
       ],
+      testModel: {
+        id: '1',
+        name: 'Test Name',
+      },
     },
   ]);
 });

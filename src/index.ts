@@ -49,18 +49,28 @@ const mapRelation = (data: IExtractDataReturnProps['relationships'], extractedIn
     let relationData;
 
     if (Array.isArray(v)) {
-      relationData = v.map((datumn) => {
+      relationData = v.reduce((result, datumn) => {
         const { id, type } = datumn;
-        const { relationships, ...relation } = extractedIncluded[type][id];
+        const camelizedType = camelize(type);
+        const extractedIncludedData = extractedIncluded[camelizedType]?.[id];
 
-        return {
+        if (!extractedIncludedData) {
+          return result;
+        }
+
+        const { relationships, ...relation } = extractedIncludedData;
+
+        result.push({
           ...relation,
           ...mapRelation(relationships, extractedIncluded),
-        };
-      });
+        });
+
+        return result;
+      }, [] as Record<string, string | TObject>[]);
     } else {
       const { id, type } = v;
-      const extractedIncludedData = extractedIncluded[type]?.[id];
+      const camelizedType = camelize(type);
+      const extractedIncludedData = extractedIncluded[camelizedType]?.[id];
 
       if (!extractedIncludedData) {
         return result;

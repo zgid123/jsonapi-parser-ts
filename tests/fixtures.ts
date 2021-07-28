@@ -16,6 +16,9 @@ export const jsonApi = {
             { type: 'comments', id: '12' },
           ],
         },
+        testModel: {
+          data: { type: 'test_models', id: '1' },
+        },
       },
     },
   ],
@@ -71,6 +74,13 @@ export const jsonApi = {
       id: '1',
       attributes: {
         street: 'Avenue Q',
+      },
+    },
+    {
+      type: 'test_models',
+      id: '1',
+      attributes: {
+        name: 'Test Name',
       },
     },
   ],

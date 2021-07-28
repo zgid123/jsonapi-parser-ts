@@ -9,6 +9,7 @@ test('extract data as flatten mode', () => {
     title: 'JSON:API paints my bikeshed!',
     author: '9',
     comments: ['5', '12'],
+    testModel: '1',
   });
 });
 
@@ -33,6 +34,10 @@ test('extract data as mapping mode', () => {
           type: 'comments',
         },
       ],
+      testModel: {
+        id: '1',
+        type: 'test_models',
+      },
     },
   });
 });
@@ -67,6 +72,12 @@ test('extract included as flatten mode', () => {
       1: {
         id: '1',
         street: 'Avenue Q',
+      },
+    },
+    testModels: {
+      1: {
+        id: '1',
+        name: 'Test Name',
       },
     },
   });
@@ -119,6 +130,13 @@ test('extract included as mapping mode', () => {
       1: {
         id: '1',
         street: 'Avenue Q',
+        relationships: {},
+      },
+    },
+    testModels: {
+      1: {
+        id: '1',
+        name: 'Test Name',
         relationships: {},
       },
     },
